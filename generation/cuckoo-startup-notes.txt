@@ -1,0 +1,47 @@
+operation notes:
+
+######## ВНИМАНИЕ! #############
+
+
+cuckoo quickstart:
+0. run the following on tmux ALWAYS! ALWAYS! CHECK FOR RUNNING TMUX AND PROCESSESS FIRST! UNDER ANY CONDITIONS DO NOT ATTEMPT BLIND STARTUP ! 
+ONLY START NEW PROCESSES  IN CASE OF SYSTEM REBOOT OR CRASH!!
+1. start rooter: (as superuser but WITHOUT sudo on the beginning)
+home/cuckoo/cuckoo/bin/cuckoo rooter --sudo --group cuckoo
+2. detach from tmux start another tmux session
+3. start web component
+#cuckoo web --host 127.0.0.1 --port 9001
+[8080 i 80 sie krzacza i nie chce ruszyc ]
+you will see
+
+
+
+cuckoo@knbi:/home/mkowalc8$ cuckoo web --host 127.0.0.1 --port 9001
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 11, 2021 - 18:48:13
+Django version 1.8.4, using settings 'cuckoo.web.web.settings'
+Starting development server at http://127.0.0.1:9001/
+Quit the server with CONTROL-C.
+
+detatch from tmux
+
+
+4. su cuckoo [p:cuckoo]
+5. start tmux
+6.start cuckoo as cuckoo user in new tmux cuckoo --debug
+
+
+
+when greeted with the prompt
+2021-04-30 20:28:54,027 [cuckoo.core.scheduler] INFO: Loaded 1 machine/s
+2021-04-30 20:28:54,049 [cuckoo.core.scheduler] INFO: Waiting for analysis tasks.
+
+YOU'RE GOOD TO GO!
+use tmux to monitor and web page or drop malware script to submit tasks!
+//////////***********************////////////////
+https://tmuxcheatsheet.com
+//////////***********************////////////////
+ensure_nat_masquerade_is_set.txt 
+sudo iptables -t nat -A POSTROUTING -s 192.168.56.0/24 -j MASQUERADE
